@@ -25,6 +25,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@import "~@/assets/style/helper.scss";
 nav {
   /*这是 scss 语法，表示 nav > .item*/
   display: flex;
@@ -45,7 +47,7 @@ nav {
     }
   }
   > .item.selected {
-    color: goldenrod;
+    color: $color-highlight;
   }
 }
 </style>
