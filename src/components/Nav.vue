@@ -28,12 +28,12 @@ export default {
 
 @import "~@/assets/style/helper.scss";
 nav {
-  /*这是 scss 语法，表示 nav > .item*/
+  @extend %outerShadow;
   display: flex;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   flex-direction: row;
   font-size: 12px;
 
+  /*这是 scss 语法，表示 nav > .item*/
   > .item {
     padding: 2px 0;
     width: 33.33333%;
