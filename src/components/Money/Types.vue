@@ -22,23 +22,6 @@ export default class Types extends Vue {
   }
 }
 
-// export default {
-//   name: 'Types',
-//   props:['xxx'],
-//   data(){
-//     return {
-//       type:'-' // '-'表示支出, '+'表示收入
-//     }
-//   },
-//   methods:{
-//     selectType(type){ // type 只能是 '-' 或 '+'
-//       if(type !== '-' && type !== '+'){
-//         throw new Error('type is unknow')
-//       }
-//       this.type = type
-//     }
-//   }
-// };
 </script>
 
 <style lang="scss" scoped>
