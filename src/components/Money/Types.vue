@@ -7,28 +7,48 @@
   </div>
 </template>
 
-<script lang="js">
-export default {
-  name: 'Types',
-  props:['xxx'],
-  data(){
-    return {
-      type:'-' // '-'表示支出, '+'表示收入
-    }
-  },
-  methods:{
-    selectType(type){ // type 只能是 '-' 或 '+'
-      if(type !== '-' && type !== '+'){
-        throw new Error('type is unknow')
-      }
-      this.type = type
-    }
+<script lang="ts">
+import Vue from 'vue';
+import {Component} from 'vue-property-decorator';
+
+@Component({
+  props:{
+    proMessage: String
   }
-};
+})
+export default class Types extends Vue {
+  type = '-'; // '-'表示支出, '+'表示收入
+  helloMsg = 'hello,' + this.proMessage;
+  selectType(type: string) { // type 只能是 '-' 或 '+'
+    if (type !== '-' && type !== '+') {
+      throw new Error('type is unknow');
+    }
+    this.type = type;
+  }
+}
+
+// export default {
+//   name: 'Types',
+//   props:['xxx'],
+//   data(){
+//     return {
+//       type:'-' // '-'表示支出, '+'表示收入
+//     }
+//   },
+//   methods:{
+//     selectType(type){ // type 只能是 '-' 或 '+'
+//       if(type !== '-' && type !== '+'){
+//         throw new Error('type is unknow')
+//       }
+//       this.type = type
+//     }
+//   }
+// };
 </script>
 
 <style lang="scss" scoped>
 @import "~@/assets/style/helper.scss";
+
 .types {
   display: flex;
   background: #c4c4c4;
