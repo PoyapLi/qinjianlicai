@@ -26,7 +26,8 @@ import {Component, Prop} from 'vue-property-decorator';
 
 @Component
 export default class NumberPad extends Vue {
-  output = '0';
+  @Prop() readonly  value!: number;
+  output = this.value.toString();
 
   inputContent(event: MouseEvent) {
     // （）内部分为强制指定 event.target 类型
@@ -62,7 +63,7 @@ export default class NumberPad extends Vue {
   }
 
   ok() {
-
+    this.$emit('update:value',this.output)
   }
 }
 </script>
