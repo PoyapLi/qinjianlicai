@@ -15,7 +15,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import {Component} from 'vue-property-decorator';
-import store from '@/store/index2';
+import store from '@/store/index2.ts';
 
 @Component
 export default class Labels extends Vue{
