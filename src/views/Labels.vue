@@ -20,15 +20,14 @@ import TagHelper from '@/mixins/TagHelper';
 import {mixins} from 'vue-class-component';
 
 @Component({
-  components:{Button},
-  computed:{
-    tags(){
-      return this.$store.state.tagList;
-    }
-  }
+  components: {Button},
 })
 export default class Labels extends mixins(TagHelper) {
-  beforeCreate(){
+  get tags() {
+    return this.$store.state.tagList;
+  }
+
+  beforeCreate() {
     this.$store.commit('fetchTags');
   }
 
@@ -39,37 +38,42 @@ export default class Labels extends mixins(TagHelper) {
 
 @import "~@/assets/style/helper.scss";
 @import "~@/assets/style/reset.scss";
-  .tags{
-    background: white;
-    font-size: 16px;
-    padding-left: 16px;
-    > .tag {
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #e6e6e6;
-      svg{
-        width: 18px;
-        height: 18px;
-        color: $color-highlight;
-        margin-right: 16px;
-      }
-    }
 
-  }
-  .createTag{
-    background: $color-highlight;
-    color: white;
-    border-radius: 4px;
-    border: none;
-    height: 40px;
-    padding: 0 16px;
-    &-wrapper{
-      text-align: center;
-      padding: 16px;
-      margin-top: 28px;
-    }
+.tags {
+  background: white;
+  font-size: 16px;
+  padding-left: 16px;
 
+  > .tag {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e6e6e6;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      color: $color-highlight;
+      margin-right: 16px;
+    }
   }
+
+}
+
+.createTag {
+  background: $color-highlight;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  height: 40px;
+  padding: 0 16px;
+
+  &-wrapper {
+    text-align: center;
+    padding: 16px;
+    margin-top: 28px;
+  }
+
+}
 </style>
