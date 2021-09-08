@@ -47,7 +47,7 @@ export default class Statistics extends Vue {
     } else if (day.isSame(now.subtract(2, 'day'), 'day')) {
       return '前天';
     } else if (day.isSame(now, 'year')) {
-      return day.format('MM月D日');
+      return day.format('M月D日');
     } else {
       return day.format('YYYY年MM月D日');
     }
@@ -66,7 +66,7 @@ export default class Statistics extends Vue {
         .sort((a, b) => dayjs(b.createdAt).valueOf() - dayjs(a.createdAt).valueOf());
 
     type Result = {title: string, total?:number, items: RecordItem[]}[]
-    const result: Result = [{title: dayjs(recordList[0].createdAt).format('YYYY-MM-DD'),items: [newList[0]]}];
+    const result: Result = [{title: dayjs(newList[0].createdAt).format('YYYY-MM-DD'),items: [newList[0]]}];
     for (let i = 1; i < newList.length; i++) {
       const current = newList[i];
       const last = result[result.length - 1];
