@@ -1,8 +1,7 @@
 <template>
   <Layout class-prefix="layout">
     <NumberPad :value.sync="record.amount" @submit="saveRecord"/>
-    <Types :value.sync="record.type"/>
-    <Tabs :data-source="recordList"
+    <Tabs :data-source="recordTypeList"
           :value.sync="record.type"
     />
     <div class="notes">
@@ -50,7 +49,7 @@ export default class Money extends Vue {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 .layout-content {
   display: flex;
   flex-direction: column-reverse;

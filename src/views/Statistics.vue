@@ -2,11 +2,20 @@
   <Layout>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
     <Tabs class-prefix="interval" :data-source="intervalList" :value.sync="interval"/>
-    <div>
-      type:{{ type }}
-      <br>
-      interval:{{ interval }}
-    </div>
+    <ol>
+      <li v-for="(group,index) in result" :key="index">
+        <h3 class="title">{{ group.title }}</h3>
+        <ol>
+          <li v-for="item in group.items" :key="item.id"
+              class="record"
+          >
+            <span>{{tagString(item.tags)}}</span>
+            <span class="notes">{{item.notes}}</span>
+            <span>¥{{ item.amount }}</span>
+          </li>
+        </ol>
+      </li>
+    </ol>
   </Layout>
 
 </template>
@@ -20,9 +29,34 @@ import recordTypeList from '@/constants/recordTypeList';
 
 @Component({
   components: {Tabs},
-
 })
+
 export default class Statistics extends Vue {
+  tagString(tags: Tag[]){
+    return tags.length === 0 ? '无' : tags.join(',')
+  }
+  get recordList() {
+    return (this.$store.state as RootState).recordList;
+  }
+
+  get result() {
+    const {recordList} = this;
+    type HashTableValue = { title: string, items: RecordList[] };
+
+    const hashTable: { [key: string]: HashTableValue } = {};
+    for (let i = 0; i < recordList.length; i++) {
+      const [date, time] = recordList[i].createdAt!.split('T');
+      hashTable[date] = hashTable[date] || {title: date, items: []};
+
+      hashTable[date].items.push(recordList[i]);
+    }
+    return hashTable;
+  }
+
+  beforeCreate() {
+    this.$store.commit('fetchRecords');
+  }
+
   type = '-';
   interval = 'day';
   intervalList = intervalList;
@@ -33,20 +67,45 @@ export default class Statistics extends Vue {
 <style scoped lang="scss">
 @import '~@/assets/style/helper.scss';
 
-::v-deep .type-tabs-item {
-  background: #c4c4c4;
+%item{
+  padding: 8px 16px;
+  line-height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
 
-  &.selected {
-    background: $color-highlight;
-    color: white;
+.title{
+  @extend %item;
+}
+.record{
+  background: white;
+  @extend %item;
+}
+.notes{
+  margin-right:auto;
+  margin-left: 16px;
+  color: #999;
+}
 
-    &::after {
-      display: none;
+
+::v-deep {
+  .type-tabs-item {
+    background: #c4c4c4;
+
+    &.selected {
+      background: $color-highlight;
+      color: white;
+
+      &::after {
+        display: none;
+      }
     }
   }
-}
-::v-deep .interval-tabs-item {
-  height: 48px;
+
+  .interval-tabs-item {
+    height: 48px;
+  }
 }
 
 
