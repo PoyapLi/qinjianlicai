@@ -3,9 +3,9 @@
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
     <Tabs class-prefix="interval" :data-source="intervalList" :value.sync="interval"/>
     <div>
-      type:{{type}}
+      type:{{ type }}
       <br>
-      interval:{{interval}}
+      interval:{{ interval }}
     </div>
   </Layout>
 
@@ -45,5 +45,9 @@ export default class Statistics extends Vue {
     }
   }
 }
+::v-deep .interval-tabs-item {
+  height: 48px;
+}
+
 
 </style>
