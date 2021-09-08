@@ -40,6 +40,7 @@ export default class Labels extends mixins(TagHelper) {
 @import "~@/assets/style/reset.scss";
 
 .tags {
+  margin-top: 16px;
   background: white;
   font-size: 16px;
   padding-left: 16px;

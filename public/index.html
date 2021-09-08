@@ -17,6 +17,13 @@
 </head>
 <body>
 <script>
+    try {
+        // 禁用双指手势操作，阻止双指放大画面
+        document.addEventListener("gesturestart", function(event) {
+            event.preventDefault();
+        });
+    } catch (error) {}
+
 
 </script>
 
