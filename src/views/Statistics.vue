@@ -111,6 +111,7 @@ export default class Statistics extends Vue {
 
 .title {
   @extend %item;
+  border-top: 6px solid rgba(32,127,76,0.6);
 }
 
 .record {
@@ -127,6 +128,9 @@ export default class Statistics extends Vue {
 
 ::v-deep {
   .type-tabs-item {
+    margin: 32px;
+    border-radius: 32px;
+    border: 2px dashed #207f4c;
     background: rgb(245, 245, 245);
 
     &.selected {

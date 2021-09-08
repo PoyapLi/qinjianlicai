@@ -41,7 +41,7 @@ export default class Tabs extends Vue {
 
 .tabs {
   display: flex;
-  background: #c4c4c4;
+  background: #f5f5f5;
   font-size: 24px;
   text-align: center;
 

@@ -1,7 +1,7 @@
 <template>
   <Layout class-prefix="layout">
     <NumberPad :value.sync="record.amount" @submit="saveRecord"/>
-    <Tabs :data-source="recordTypeList"
+    <Tabs class="moneySelectedBar" :data-source="recordTypeList"
           :value.sync="record.type"
     />
     <div class="notes">
@@ -65,5 +65,8 @@ export default class Money extends Vue {
 
 .notes {
   padding: 12px 0;
+}
+.moneySelectedBar{
+  background: white;
 }
 </style>

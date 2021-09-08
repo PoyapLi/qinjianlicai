@@ -21,6 +21,8 @@
 </template>
 
 <script lang="ts">
+
+
 import Vue from 'vue';
 import {Component, Prop} from 'vue-property-decorator';
 
@@ -30,6 +32,7 @@ export default class NumberPad extends Vue {
   output = this.value.toString();
 
   inputContent(event: MouseEvent) {
+
     // （）内部分为强制指定 event.target 类型
     const button = (event.target as HTMLButtonElement);
     const input = button.textContent as string;
@@ -95,6 +98,8 @@ export default class NumberPad extends Vue {
     }
 
     > button {
+      font-weight: bold ;
+      color: white;
       width: 25%;
       height: 64px;
       float: left;
@@ -110,34 +115,46 @@ export default class NumberPad extends Vue {
         width: 25*2%;
       }
 
-      $bg: #f2f2f2;
+      $bg: #a4cab6;
 
       &:nth-child(1) {
         background: $bg;
+        border-radius: 32px;
+
       }
 
       &:nth-child(2), &:nth-child(5) {
         background: darken($bg, 4%);
+        border-radius: 32px;
       }
 
       &:nth-child(3), &:nth-child(6), &:nth-child(9) {
         background: darken($bg, 8%);
+        border-radius: 32px;
+
       }
 
       &:nth-child(4), &:nth-child(7), &:nth-child(10), &:nth-child(13) {
         background: darken($bg, 12%);
+        border-radius: 32px;
+
       }
 
       &:nth-child(8), &:nth-child(11), &:nth-child(13) {
         background: darken($bg, 16%);
+        border-radius: 32px;
+
       }
 
       &:nth-child(14) {
         background: darken($bg, 20%);
+        border-radius: 32px;
+
       }
 
       &:nth-child(12) {
         background: $color-highlight;
+        border-radius: 32px;
       }
     }
   }
