@@ -17,7 +17,7 @@ git add -A
 git commit -m 'deploy'
 
 # 部署到 https://<USERNAME>.github.io
-# git push -f git@github.com:PoyapLi/PoyapLi.github.io.git master
+ git push -f git@github.com:PoyapLi/qinjianlicai.git master
 
 # 部署到 https://<USERNAME>.github.io/<REPO>
  git push -f git@github.com:PoyapLi/qinjianlicai-website.git master:gh-pages
