@@ -59,8 +59,9 @@ export default class Tabs extends Vue {
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 4px;
+      height: 8px;
       background: $color-highlight;
+      border-radius: 4px;
     }
   }
 }

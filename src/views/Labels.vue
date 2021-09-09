@@ -69,6 +69,7 @@ export default class Labels extends mixins(TagHelper) {
   border: none;
   height: 40px;
   padding: 0 16px;
+  font-size: 18px;
 
   &-wrapper {
     text-align: center;

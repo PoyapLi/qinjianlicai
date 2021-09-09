@@ -1,7 +1,7 @@
 <template>
   <div class="numberPad">
     <div class="output">{{ output }}</div>
-    <div class="buttons">
+    <div class="buttons ">
       <button @click="inputContent">1</button>
       <button @click="inputContent">2</button>
       <button @click="inputContent">3</button>
@@ -149,11 +149,16 @@ export default class NumberPad extends Vue {
       }
 
       &:nth-child(12) {
-        background: $color-highlight;
+        background: lighten($color-highlight, 5%);
         border-radius: 32px;
       }
     }
+    > button:active{
+      background-color: $color-highlight;
+    }
   }
+
+
 }
 
 </style>

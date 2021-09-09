@@ -37,7 +37,7 @@ import clone from '@/lib/clone';
 
 export default class Statistics extends Vue {
   tagString(tags: Tag[]) {
-    return tags.length === 0 ? '无' : tags.map(t=>t.name).join('，');
+    return tags.length === 0 ? '无' : tags.map(t=>t.name).join(' 、');
   }
 
   beautify(string: string) {

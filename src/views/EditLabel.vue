@@ -72,7 +72,7 @@ export default class EditLabel extends Vue {
   justify-content: space-between;
 
   > .title {
-
+    margin-right: 16px;
   }
 
   > .leftIcon {
@@ -100,5 +100,10 @@ export default class EditLabel extends Vue {
   text-align: center;
   padding: 16px;
   margin-top: 28px;
+  > Button{
+    background-color: #de1c31;
+    border-radius: 28px;
+    font-size: 18px;
+  }
 }
 </style>
