@@ -47,5 +47,3 @@ if (document.documentElement.clientWidth > 500) {
     img.style.boxShadow = '0 0 10px rgba(0,0,0,0.5)';
     document.body.appendChild(img);
 }
-if (navigator.userAgent.match(/(iPad|iPhone|iPod|Android|Silk)/gi))
-    document.title = "勤俭理财";
