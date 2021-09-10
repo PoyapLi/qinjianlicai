@@ -14,6 +14,14 @@ Vue.component('Nav', Nav);
 Vue.component('Layout', Layout);
 Vue.component('Icon', Icon);
 
+router.beforeEach((to, from, next)=>{
+    // @ts-ignore
+    if(to.meta.title) {
+        // @ts-ignore
+        document.title = to.meta.title
+    }
+    next()
+})
 
 new Vue({
     router,

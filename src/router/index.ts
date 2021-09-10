@@ -11,27 +11,42 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
     {
-        path:'/',
-        redirect:'/money'
+        path: '/',
+        redirect: '/money',
+        meta: {
+            title: '勤俭记账'
+        }
     },
     {
-        path:'/money',
-        component: Money
+        path: '/money',
+        component: Money,
+        meta: {
+            title: '勤俭记账'
+        }
     },
     {
-        path:'/labels',
-        component: Labels
+        path: '/labels',
+        component: Labels,
+        meta: {
+            title: '勤俭记账'
+        }
     },
     {
-        path:'/statistics',
-        component: Statistics
+        path: '/statistics',
+        component: Statistics,
+        meta: {
+            title: '勤俭记账'
+        }
     },
     {
-      path:'/labels/edit/:id',
-      component: EditLabel
+        path: '/labels/edit/:id',
+        component: EditLabel,
+        meta: {
+            title: '勤俭记账'
+        }
     },
     {
-        path:'*',
+        path: '*',
         component: NotFound
     },
 
